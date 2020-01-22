@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse
-from django.contrib.auth import logout
+from django.contrib.auth import login, logout
 from django.contrib import messages
+from accounts.forms import LoginForm
 
 # --------------------------------------------------------- Index view
 
@@ -11,16 +12,18 @@ def index(request):
 # --------------------------------------------------------- Login view
 
 
-# def login_user(request):
-#     username = request.POST['username']
-#     password = request.POST['password']
-#     user = authenticate(request, username=username, password=password)
+def login_user(request):
+    login_form = LoginForm
+    return render(request, 'login.html', {"login_form": login_form})
+    # username = request.POST['username']
+    # password = request.POST['password']
+    # user = authenticate(request, username=username, password=password)
 
-#     if user is not None:
-#         login(request, user)
-#         # Redirect to success page (i.e. profile page)
-#     else:
-#         # Return invalid login error message
+    # if user is not None:
+    #     login(request, user)
+    #     # Redirect to success page (i.e. profile page)
+    # else:
+    #     # Return invalid login error message
 
 # --------------------------------------------------------- Logout view
 
