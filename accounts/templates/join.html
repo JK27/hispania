@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block page_title %}Join In Page{% endblock %}
+
+{% block page_heading %}Member Registration{% endblock %}
+
+{% block content %}
+<!-- Message to redirect to login page for already members -->
+<p>If you already have a membership, you can <a href="{% url 'login' %}">log in.</a></p>
+
+<!--------------------------------------------------------- Join in form -->
+<form method="POST">
+	{% csrf_token %}
+	{{ join_form.as_p }}
+	<button type="submit">Join in</button>
+</form>
+{% endblock %}

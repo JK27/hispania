@@ -9,16 +9,25 @@
 </head>
 
 <body>
+	<!--------------------------------------------------------- Page heading -->
 	<h1>{% block page_heading %}{% endblock %}</h1>
+	<!-- Navigation menu -->
 	<nav>
 		<ul>
-			<li><a href="{% url 'login' %}">Login</a></li>
+			<!-- If user is authenticated, only display Profile and Logout options -->
+			{% if user.is_authenticated %}
+			<li><a href="{% url 'profile' %}">Profile</a></li>
 			<li><a href="{% url 'logout' %}">Logout</a></li>
-			<li><a href="#">Register</a></li>
-			<li><a href="#">Profile</a></li>
+
+			<!-- If user is NOT authenticated, then display Login and Register options -->
+			{% else %}
+			<li><a href="{% url 'login' %}">Login</a></li>
+			<li><a href="{% url 'join' %}">Join in</a></li>
+            {% endif %}
 		</ul>
 	</nav>
 	<hr>
+	<!--------------------------------------------------------- Messages -->
 	{% if messages %}
 	<div>
 		{% for message in messages %}
@@ -26,6 +35,7 @@
 		{% endfor %}
 	</div>
 	{% endif %}
+	<!--------------------------------------------------------- Block content -->
 	{% block content %}
 	{% endblock %}
 </body>

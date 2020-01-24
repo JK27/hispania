@@ -3,9 +3,10 @@
 
 {% block page_title %}Login Page{% endblock %}
 
-{% block page_heading %}User Login{% endblock %}
+{% block page_heading %}Member Login{% endblock %}
 
 {% block content %}
+<!--------------------------------------------------------- Login form -->
 <form method="POST">
 	{% csrf_token %}
 	{{ login_form }}

@@ -1,5 +1,7 @@
 from django.db import models
 
+# --------------------------------------------------------- Display membership types
+
 
 class Membership(models.Model):
     membership_type = models.CharField(max_length=50, default='')
