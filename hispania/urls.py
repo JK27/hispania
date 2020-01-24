@@ -19,7 +19,7 @@ from accounts.views import index, login_user, logout_user
 
 urlpatterns = [
     path('memberships/', include('memberships.urls')),
-    path('accounts/', index, name="index"),
+    path('', index, name="index"),
     path('accounts/login', login_user, name="login"),
     path('accounts/logout', logout_user, name="logout"),
     path('admin/', admin.site.urls),

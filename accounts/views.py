@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect, reverse
-from django.contrib.auth import login, logout
-from django.contrib import messages
+from django.contrib import auth, messages
 from accounts.forms import LoginForm
 
 # --------------------------------------------------------- Index view
@@ -13,7 +12,20 @@ def index(request):
 
 
 def login_user(request):
-    login_form = LoginForm
+    if request.method == "POST":
+        login_form = LoginForm(request.POST)
+
+        if login_form.is_valid():
+            user = auth.authenticate(username=request.POST['username'], password=request.POST['password'])
+
+            if user:
+                auth.login(user=user, request=request)
+                messages.success(request, "You have succesfully logged in.")
+            else:
+                login_form.add_error(None, "Your username of password is incorrect.")
+    else:
+        login_form = LoginForm()
+
     return render(request, 'login.html', {"login_form": login_form})
     # username = request.POST['username']
     # password = request.POST['password']
@@ -29,6 +41,6 @@ def login_user(request):
 
 
 def logout_user(request):
-    logout(request)
+    auth.logout(request)
     messages.success(request, "You have succesfully been logged out.")
     return redirect(reverse('index'))
