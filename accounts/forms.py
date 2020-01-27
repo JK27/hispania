@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
-# --------------------------------------------------------- Member Registration Form
+# --------------------------------------------------------- Member Join in Form
 
 
 class JoinForm(UserCreationForm):
