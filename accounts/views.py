@@ -33,7 +33,8 @@ def member_join(request):
                 messages.success(request, "You have successfully joined in.")
             else:
                 messages.error(
-                    request, "We are unable to register your account at this time.")
+                    request,
+                    "We are unable to register your account at this time.")
     else:
         join_form = JoinForm()
     return render(request, 'join.html', {"join_form": join_form})
@@ -54,7 +55,10 @@ def login_member(request):
             user = auth.authenticate(username=request.POST['username'],
                                      password=request.POST['password'])
 
-            # If login details are correct, display success message and redirect to Home Page
+            """
+            If login details are correct, display success message
+            and redirect to Home Page
+            """
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "Welcome back!")

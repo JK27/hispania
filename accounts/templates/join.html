@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
 
+{% load bootstrap_tags %}
+
 {% block page_title %}Join In Page{% endblock %}
 
 {% block page_heading %}Member Registration{% endblock %}
@@ -12,7 +14,7 @@
 <!--------------------------------------------------------- Join in form -->
 <form method="POST">
 	{% csrf_token %}
-	{{ join_form.as_p }}
+	{{ join_form | as_bootstrap }}
 	<button type="submit">Join in</button>
 </form>
 {% endblock %}
