@@ -14,22 +14,20 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from accounts.views import index, member_join, member_profile, login_member, logout_member
-from django.contrib.auth import views as auth_views
+from django.urls import path, include
+from accounts import urls as urls_accounts
+from memberships import urls as urls_memberships
+from cart import urls as urls_cart
+from memberships.views import all_memberships
+from django.views import static
+from .settings import MEDIA_ROOT
 
 
 urlpatterns = [
     path('admin/', admin.site.urls, name="admin"),
-    path('', index, name="index"),
-    path('join/', member_join, name="join"),
-    path('profile/', member_profile, name="profile"),
-    path('login/', login_member, name="login"),
-    path('logout/', logout_member, name="logout"),
-    path('password-change/', auth_views.PasswordChangeView.as_view(), name="password_change"),
-    path('password-change-done/', auth_views.PasswordChangeDoneView.as_view(), name="password_change_done"),
-    path('password-reset/', auth_views.PasswordResetView.as_view(), name="password_reset"),
-    path('password-reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(), name="password_reset_confirm"),
-    path('password-reset-done/', auth_views.PasswordResetDoneView.as_view(), name="password_reset_done"),
-    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(), name="password_reset_complete"),
-    ]
+    path('', all_memberships, name="index"),
+    path('accounts/', include(urls_accounts)),
+    path('memberships/', include(urls_memberships)),
+    path('cart/', include(urls_cart)),
+    path('media/(?<path>.*)', static.serve, {'document_root': MEDIA_ROOT}),
+]

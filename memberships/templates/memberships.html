@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row row-flex">
+	{% for membership in memberships %}
+	<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+        <div class="panel-body">
+            <div class="membership"></div>
+            <h3>{{ membership.name }}</h3>
+            <p class="membership-description">{{ membership.description }}</p>
+            <p>{{ membership.price }}</p>
+
+            <form method="POST" action="{% url 'add_to_cart' membership.id %}">
+                {% csrf_token %}
+                <button class="btn btn-success" type="submit">Add to cart</button>
+            </form>
+
+        </div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
