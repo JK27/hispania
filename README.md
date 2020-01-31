@@ -1,7 +1,1 @@
-# Code Institute
-
-Welcome USER_NAME,
-
-We have preinstalled all of the tools you need to get started.
-
-Happy coding!
+[![Build Status](https://travis-ci.com/JK27/hispania.svg?token=FmnEbidHoyxe4GXVgCHs&branch=master)](https://travis-ci.com/JK27/hispania)
