@@ -2,24 +2,24 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="row row-flex">
+<div class="d-md-flex flex-md-equal justify-content-center w-100 my-md-3 pl-md-3">
 	{% for membership in memberships %}
-	<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
-		<div class="panel-body">
+	<div class="border rounded-lg shadow mr-md-3 py-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+		<!-- <div class="panel-body"> -->
 			<div class="membership"></div>
-			<h3>{{ membership.name }}</h3>
+			<h3>{{ membership.membership_type }}</h3>
 			<p class="membership-description">{{ membership.description }}</p>
-			<p>{{ membership.price }}</p>
+			<p><strong>£{{ membership.price }}</strong></p>
 
 			<form method="POST" action="{% url 'add_to_cart' membership.id %}">
 				{% csrf_token %}
-				<input name="quantity" type="number" min="1" max="1" class="form-control" placeholder="Quantity">
+				<input name="quantity" type="hidden" value="1" class="form-control" placeholder="Quantity">
 				<span class="input-group-btn">
                 <button class="btn btn-success" type="submit">Add to cart</button>
                 </span>
 			</form>
 
-		</div>
+		<!-- </div> -->
 	</div>
 	{% endfor %}
 </div>
