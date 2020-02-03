@@ -1,6 +1,8 @@
 from django import forms
 from .models import Order
 
+# --------------------------------------------------------- Payment form
+
 
 class MakePaymentForm(forms.Form):
     MONTH_CHOICES = [(i, i) for i in range(1, 12)]
@@ -15,9 +17,12 @@ class MakePaymentForm(forms.Form):
                                     required=False)
     stripe_id = forms.CharField(widget=forms.HiddenInput)
 
+# --------------------------------------------------------- Order form
+
 
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = ('full_name', 'phone_number', 'postcode', 'town',
-                  'address1', 'address2', 'county')
+        fields = ('first_name', 'surname', 'address1', 'address2',
+                  'postcode', 'town', 'county', 'phone_number',
+                  'email_address')

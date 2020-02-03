@@ -67,7 +67,7 @@
 				<a py-2 d-none d-md-inline-block href="{% url 'view_cart' %}">
 					<i class="fas fa-shopping-cart"></i>Cart
 					{% if membership_count > 0 %}
-					<label class="badge badge-warning badge-pill">{{ membership_count }}</label>
+					<span class="badge badge-secondary badge-pill">{{ membership_count }}</span>
 					{% endif %}
 				</a>
 				<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarHeader" aria-expanded="false" aria-controls="navbarHeader" aria-label="Toggle navigation">
@@ -99,7 +99,7 @@
 	{% block content %}
 	{% endblock %}
 
-	<footer class="fixed-bottom">
+	<footer class="bottom text-center">
 		<div class="container">
 			<p>Hispania</p>
 		</div>

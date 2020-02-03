@@ -3,8 +3,10 @@ from memberships.models import Membership
 
 
 class Order(models.Model):
-    full_name = models.CharField(max_length=100, blank=False)
+    first_name = models.CharField(max_length=100, blank=False)
+    surname = models.CharField(max_length=100, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
+    email_address = models.CharField(max_length=100, blank=False)
     postcode = models.CharField(max_length=20, blank=True)
     town = models.CharField(max_length=50, blank=False)
     address1 = models.CharField(max_length=100, blank=False)
