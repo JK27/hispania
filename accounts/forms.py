@@ -17,7 +17,11 @@ class JoinForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['email', 'username', 'password1', 'password2']
+        # fields = ['email', 'username', 'password1', 'password2']
+        fields = ['firstName', 'lastName', 'username', 'dob',
+                  'email', 'password1', 'password2',
+                  'address1', 'address2', 'town', 'postcode',
+                  'landline', 'mobile']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
