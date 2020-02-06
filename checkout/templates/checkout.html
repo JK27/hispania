@@ -34,8 +34,8 @@
 	<p><span class="glyphicon glyphicon-pound" aria-hidden="true"></span>{{ total }}</p>
 </div> -->
 <div class="container">
-	<!-- Cart summary -->
 	<div class="row">
+        <!-- Cart summary -->
 		<div class="col-md-4 order-md-2 mb-4">
 			<h4 class="d-flex justify-content-between align-items-center mb-3">
 				<span class="text-muted">Your cart</span>
@@ -67,20 +67,18 @@
 				<div id="credit-card-errors" style="=display:none">
 					<div class="alert-message block-message error" id="stripe-error-message"></div>
 				</div>
-				<!-- {{ order_form|as_bootstrap }} -->
+				{{ order_form|as_bootstrap }}
 
 <!-- ----------------------------------------------------------------------------------------------------- -->
 
-				<div class="row">
-                    <!-- First name -->
+				<!-- <div class="row">
 					<div class="col-md-6 mb-3 form-group" id="div_id_first_name">
 						<label for="id_first_name" class="control-label required-field">First name</label>
-						<input type="text" name="first_name" class="form-control" id="first_name" placeholder="" required autofocus>
+						<input type="text" name="first_name" class="form-control" id="id_first_name" placeholder="" required autofocus>
 						<div class="invalid-feedback">
 							This field is required, please enter a valid first name.
 						</div>
 					</div>
-                    <!-- Surname -->
 					<div class="col-md-6 mb-3 form-group" id="div_id_surname">
 						<label for="id_surname" class="control-label required-field">Surname</label>
 						<input type="text" name="surname" class="form-control" id="id_surname" placeholder="" required>
@@ -89,7 +87,6 @@
 						</div>
 					</div>
 				</div>
-                <!-- Email address -->
 				<div class="mb-3 form-group" id="div_id_email_address">
 					<label for="id_email_address" class="control-label required-field">Email address</label>
 					<input type="email" name="email_address" class="form-control" id="id_email_address" placeholder="you@example.com" required>
@@ -97,7 +94,6 @@
 						This field is required, please enter a valid email address.
 					</div>
 				</div>
-                <!-- Home address -->
 				<div class="mb-3 form-group" id="div_id_address1">
 					<label for="id_address1" class="control-label required-field">Home address</label>
 					<input type="text" name="adress1" class="form-control" id="id_address1" placeholder="1234 Main St" required>
@@ -114,7 +110,6 @@
                 </div>
                 
 				<div class="row">
-                <!-- Postcode -->
                 <div class="col-md-3 mb-3 form-group" id="div_id_postcode">
 						<label for="id_postcode" class="control-label required-field">Postcode</label>
 						<input type="text" name="postcode" class="form-control" id="id_postcode" placeholder="" required>
@@ -122,7 +117,6 @@
 							This field is required, please enter a valid town.
 						</div>
 					</div>
-                    <!-- Town -->
 					<div class="col-md-9 mb-3 form-group" id="div_id_town">
 				    	<label for="id_town" class="control-label required-field">Town</label>
 						<input type="text" name="town" class="form-control" id="id_town" placeholder="Edinburgh" required>
@@ -133,7 +127,6 @@
 				</div>
 
                 <div class="row">
-                <!-- Landline -->
                 <div class="col-md-6 mb-3 form-group" id="div_id_landline">
 						<label for="id_landline" class="control-label">Home phone number
                             <span class="text-muted"> (Optional)</span>
@@ -143,7 +136,6 @@
 							This field is required, please enter a valid home phone number.
 						</div>
 					</div>
-                    <!-- Mobile -->
 					<div class="col-md-6 mb-3 form-group" id="div_id_mobile">
 				    	<label for="id_mobile" class="control-label required-field">Mobile number</label>
 						<input type="number" name="mobile" class="form-control" id="id_mobile" placeholder="" required>
@@ -151,7 +143,7 @@
 							This field is required, please enter a mobile number.
 						</div>
 					</div>				
-				</div>
+				</div> -->
 
                 <hr class="mb-4">
 				<!-- Payment information -->
