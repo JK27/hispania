@@ -8,20 +8,29 @@ from django.core.exceptions import ValidationError
 
 class JoinForm(UserCreationForm):
 
+    firstName = forms.CharField(max_length=50, required=True)
+    lastName = forms.CharField(max_length=50, required=True)
+    dob = forms.DateField()
     password1 = forms.CharField(
         label="Enter Password",
         widget=forms.PasswordInput)
     password2 = forms.CharField(
         label="Confirm Password",
         widget=forms.PasswordInput)
+    address1 = forms.CharField(max_length=50, required=True)
+    address2 = forms.CharField(max_length=50, required=True)
+    town = forms.CharField(max_length=50, required=True)
+    postcode = forms.CharField(max_length=10)
+    landline = forms.CharField(max_length=20)
+    mobile = forms.CharField(max_length=20)
 
     class Meta:
         model = User
-        # fields = ['email', 'username', 'password1', 'password2']
-        fields = ['firstName', 'lastName', 'username', 'dob',
-                  'email', 'password1', 'password2',
-                  'address1', 'address2', 'town', 'postcode',
-                  'landline', 'mobile']
+        fields = ['email', 'username', 'password1', 'password2']
+        # fields = ['firstName', 'lastName', 'username', 'dob',
+        #           'email', 'password1', 'password2',
+        #           'address1', 'address2', 'town', 'postcode',
+        #           'landline', 'mobile']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
