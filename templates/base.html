@@ -52,7 +52,7 @@
 		<!-- Navigation menu -->
 		<nav class="navbar navbar-dark bg-dark shadow-sm sticky-top py-1">
 			<div class="container d-flex flex-column flex-md-row justify-content-between">
-				<a class="navbar-brand" href="/">Hispania</a>
+				<a class="navbar-brand" href="{% url 'index' %}">Hispania</a>
 
 				<!-- If user is authenticated, only display Profile and Logout options -->
 				{% if user.is_authenticated %}
@@ -64,12 +64,12 @@
 				<a py-2 d-none d-md-inline-block href="{% url 'login' %}">Login</a>
 				<a py-2 d-none d-md-inline-block href="{% url 'join' %}">Join in</a>
 				{% endif %}
-				<a py-2 d-none d-md-inline-block href="{% url 'view_cart' %}">
+				<!-- <a py-2 d-none d-md-inline-block href="{% url 'view_cart' %}">
 					<i class="fas fa-shopping-cart"></i>Cart
 					{% if membership_count > 0 %}
 					<span class="badge badge-secondary badge-pill">{{ membership_count }}</span>
 					{% endif %}
-				</a>
+				</a> -->
 				<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarHeader" aria-expanded="false" aria-controls="navbarHeader" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                     <span class="icon-bar"></span>
@@ -99,6 +99,7 @@
 	{% block content %}
 	{% endblock %}
 
+	<!--------------------------------------------------------- Footer -->
 	<footer class="bottom text-center">
 		<div class="container">
 			<p>Hispania</p>
