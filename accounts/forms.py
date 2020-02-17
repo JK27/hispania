@@ -1,36 +1,37 @@
 from django import forms
-from django.contrib.auth.models import User
+from django.contrib.auth.forms import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
+from bootstrap_datepicker_plus import DatePickerInput
 
 # --------------------------------------------------------- Member Join in Form
 
 
 class JoinForm(UserCreationForm):
 
-    firstName = forms.CharField(max_length=50, required=True)
-    lastName = forms.CharField(max_length=50, required=True)
-    dob = forms.DateField()
-    password1 = forms.CharField(
-        label="Enter Password",
-        widget=forms.PasswordInput)
-    password2 = forms.CharField(
-        label="Confirm Password",
-        widget=forms.PasswordInput)
-    address1 = forms.CharField(max_length=50, required=True)
-    address2 = forms.CharField(max_length=50, required=True)
-    town = forms.CharField(max_length=50, required=True)
-    postcode = forms.CharField(max_length=10)
-    landline = forms.CharField(max_length=20)
-    mobile = forms.CharField(max_length=20)
+    first_name = forms.CharField(max_length=100)
+    surname = forms.CharField(max_length=100)
+    dob = forms.DateField(widget=DatePickerInput(format='%d/%m/%Y'))
+    password1 = forms.PasswordInput()
+    password2 = forms.PasswordInput()
+    address1 = forms.CharField(max_length=100, label='Home address')
+    address2 = forms.CharField(
+        max_length=100, label='Home address (Optional)', required=False)
+    postcode = forms.CharField(max_length=20)
+    town = forms.CharField(max_length=50)
+    email_address = forms.EmailField(max_length=100)
+    landline = forms.CharField(
+        max_length=20, label='Home phone number (Optional)', required=False)
+    mobile = forms.CharField(
+        max_length=20, label='Mobile number', )
+    date = forms.DateInput()
 
     class Meta:
         model = User
-        fields = ['email', 'username', 'password1', 'password2']
-        # fields = ['firstName', 'lastName', 'username', 'dob',
-        #           'email', 'password1', 'password2',
-        #           'address1', 'address2', 'town', 'postcode',
-        #           'landline', 'mobile']
+        fields = ['first_name', 'surname', 'dob',
+                  'password1', 'password2',
+                  'address1', 'address2', 'postcode', 'town',
+                  'email_address', 'landline', 'mobile']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')

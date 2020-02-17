@@ -1,4 +1,16 @@
+.bg-dark {
+    background-color: #330033!important;
+}
 
+a.bg-dark:hover {
+    background-color: #997a00! important;
+    text-decoration: none;
+}
+
+.btn-success {
+    background-color: #003300;
+    border-color: #330033;
+}
 
 /* ------------------------------------ Sigin Form */
 .form-signin {
@@ -6,4 +18,28 @@
     max-width: 330px;
     padding: 15px;
     margin: auto;
+}
+
+/* ------------------------------------ Checkout Form */
+
+#div_id_landline {
+    width: 50%
+}
+
+#div_id_mobile {
+    width: 50%
+}
+
+/* ------------------------------------ Payment Form */
+
+#id_cvv {
+    width: 30%;
+}
+
+#id_expiry_month {
+    width: 30%;
+}
+
+#id_expiry_year {
+    width: 30%;
 }
