@@ -10,6 +10,7 @@
     Stripe.publishableKey = '{{ publishable }}';
     //]]>
 </script>
+<script type="text/javascript" src="{% static 'js/datepicker.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 {% endblock %}
 
@@ -130,6 +131,7 @@
 				<!-- Payment information -->
 				<legend>Payment Information</legend>
 				<div class="form-group">
+                    {{ payment_form.media }}
 					{{ payment_form|as_bootstrap }}
 				</div>
 
