@@ -1,6 +1,6 @@
 from django.db import models
 
-# --------------------------------------------------------- Display membership types
+# --------------------------------------------------------- Show memberships
 
 
 class Membership(models.Model):

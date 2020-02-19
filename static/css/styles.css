@@ -1,15 +1,38 @@
+body {
+    font-family: 'Oswald', sans-serif;
+}
+
 .bg-dark {
     background-color: #330033!important;
 }
 
 a.bg-dark:hover {
-    background-color: #997a00! important;
+    background-color: #660066! important;
     text-decoration: none;
 }
 
+/* ------------------------------------ Buttons */
 .btn-success {
     background-color: #003300;
+    border-color: #003300;
+    border-width: medium;
+}
+
+.btn-success:hover {
+    background-color: #006600;
+    border-color: #003300;
+    border-width: medium;
+}
+
+.btn-outline-secondary {
     border-color: #330033;
+    border-width : medium;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #660066! important;
+    border-color: #330033;
+    border-width : medium;
 }
 
 /* ------------------------------------ Sigin Form */

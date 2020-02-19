@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
+{% load static from static %}
 {% load bootstrap_tags %}
+
+{% block head_js %}
+<script type="text/javascript" src="{% static 'js/datepicker.js' %}"></script>
+{% endblock %}
 
 {% block page_title %}Join In Page{% endblock %}
 
@@ -45,7 +50,7 @@
                 {{ join_form.media }}
 				{{ join_form | as_bootstrap }}
 				<div class="form-group">
-					<input type="submit" class="btn btn-primary" id="join_in_btn" name="join_in" value="Join in">
+					<input type="submit" class="btn btn-success" id="join_in_btn" name="join_in" value="Join in">
 			    </div>
 			</form>
 		</div>

@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 	<link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
-    
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/5d6ba07855.js" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -72,7 +72,7 @@
 				<!-- If user is NOT authenticated, then display Login and Register options -->
 				{% else %}
 				<a py-2 d-none d-md-inline-block href="{% url 'login' %}">Login</a>
-				<a py-2 d-none d-md-inline-block href="{% url 'join' %}">Join in</a>
+				<a py-2 d-none d-md-inline-block href="{% url 'memberships' %}">Join in</a>
 				{% endif %}
 				<!-- <a py-2 d-none d-md-inline-block href="{% url 'view_cart' %}">
 					<i class="fas fa-shopping-cart"></i>Cart

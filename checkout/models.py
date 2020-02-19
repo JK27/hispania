@@ -6,12 +6,16 @@ class Order(models.Model):
     first_name = models.CharField(max_length=100, blank=False, default='')
     surname = models.CharField(max_length=100, blank=False, default='')
     email_address = models.EmailField(max_length=100, blank=False, default='')
-    address1 = models.CharField(max_length=100, blank=False, default='', verbose_name='Home address')
-    address2 = models.CharField(max_length=100, blank=True, default='', verbose_name='Home address (Optional)')
+    address1 = models.CharField(max_length=100, blank=False, default='',
+                                verbose_name='Home address')
+    address2 = models.CharField(max_length=100, blank=True, default='',
+                                verbose_name='Home address (Optional)')
     postcode = models.CharField(max_length=20, blank=True, default='')
     town = models.CharField(max_length=50, blank=False, default='')
-    landline = models.IntegerField(max_length=20, blank=True, default='', verbose_name='Home phone number (Optional)')
-    mobile = models.IntegerField(max_length=20, blank=False, default='', verbose_name='Mobile number', )
+    landline = models.IntegerField(max_length=20, blank=True, default='',
+                                   verbose_name='Home phone number (Optional)')
+    mobile = models.IntegerField(max_length=20, blank=False, default='',
+                                 verbose_name='Mobile number', )
     date = models.DateField()
 
     def __str__(self):

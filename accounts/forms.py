@@ -11,19 +11,22 @@ class JoinForm(UserCreationForm):
 
     first_name = forms.CharField(max_length=100)
     surname = forms.CharField(max_length=100)
-    dob = forms.DateField(widget=DatePickerInput(format='%d/%m/%Y'))
+    dob = forms.DateField(widget=DatePickerInput(format='%d/%m/%Y',
+                                                 options={
+                                                     'showTodayButton': False,
+                                                     'showClear': False,
+                                                 }))
     password1 = forms.PasswordInput()
     password2 = forms.PasswordInput()
     address1 = forms.CharField(max_length=100, label='Home address')
-    address2 = forms.CharField(
-        max_length=100, label='Home address (Optional)', required=False)
+    address2 = forms.CharField(max_length=100, label='Home address (Optional)',
+                               required=False)
     postcode = forms.CharField(max_length=20)
     town = forms.CharField(max_length=50)
     email_address = forms.EmailField(max_length=100)
-    landline = forms.CharField(
-        max_length=20, label='Home phone number (Optional)', required=False)
-    mobile = forms.CharField(
-        max_length=20, label='Mobile number', )
+    landline = forms.CharField(label='Home phone number (Optional)',
+                               required=False)
+    mobile = forms.CharField(label='Mobile number')
     date = forms.DateInput()
 
     class Meta:

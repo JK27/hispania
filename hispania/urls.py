@@ -20,6 +20,7 @@ from accounts import urls as urls_accounts
 from memberships import urls as urls_memberships
 from cart import urls as urls_cart
 from checkout import urls as urls_checkout
+from boosters import urls as urls_boosters
 from django.views import static
 from .settings import MEDIA_ROOT
 
@@ -31,5 +32,6 @@ urlpatterns = [
     path('memberships/', include(urls_memberships)),
     path('cart/', include(urls_cart)),
     path('checkout/', include(urls_checkout)),
+    path('boosters/', include(urls_boosters)),
     path('media/(?<path>.*)', static.serve, {'document_root': MEDIA_ROOT}),
 ]
