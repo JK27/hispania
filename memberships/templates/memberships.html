@@ -10,6 +10,7 @@
 		<p class="membership-description">{{ membership.description }}</p>
 		<p><strong>£{{ membership.price }}</strong></p>
 
+        <!-- Choose membership form -->
 		<form method="POST" action="{% url 'add_to_cart' membership.id %}">
 			{% csrf_token %}
 			<input name="quantity" type="hidden" value="1" class="form-control" placeholder="Quantity">
