@@ -11,6 +11,15 @@ a.bg-dark:hover {
     text-decoration: none;
 }
 
+.navbar-link {
+    color: #ffffff;
+}
+
+.navbar-link:hover {
+    color: #660066;
+    text-decoration: none;
+}
+
 /* ------------------------------------ Buttons */
 .btn-success {
     background-color: #003300;
