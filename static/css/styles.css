@@ -44,6 +44,18 @@ a.bg-dark:hover {
     border-width : medium;
 }
 
+.btn-danger {
+    background-color: #660000;
+    border-color: #660000;
+    border-width : medium;
+}
+
+.btn-danger:hover {
+    background-color: #990000! important;
+    border-color: #660000;
+    border-width : medium;
+}
+
 /* ------------------------------------ Sigin Form */
 .form-signin {
     width: 100%;
@@ -51,6 +63,12 @@ a.bg-dark:hover {
     padding: 15px;
     margin: auto;
 }
+
+/* ------------------------------------ Cart template */
+.cart-total {
+    display: inline-flex;
+}
+
 
 /* ------------------------------------ Checkout Form */
 
