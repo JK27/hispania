@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'cart.apps.CartConfig',
     'checkout.apps.CheckoutConfig',
-    'boosters.apps.BoostersConfig',
 ]
 
 MIDDLEWARE = [
