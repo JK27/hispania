@@ -28,14 +28,14 @@
 						<h6 class="my-0">{{ item.membership.membership_type}}</h6>
 						<small class="text-muted">{{ item.membership.description }}</small>
 					</div>
-					<span class="text-muted">{{ item.membership.price }}</span>
+					<span class="text-muted"> £{{ item.membership.price }}</span>
 				</li>
 				{% endfor %}
 
 
 				<li class="list-group-item d-flex justify-content-between">
 					<span>Total</span>
-					<strong>£{{ total }}</strong>
+					<strong> £{{ total }}</strong>
 				</li>
 			</ul>
 		</div>
@@ -50,81 +50,6 @@
 				</div>
 				{{ order_form|as_bootstrap }}
 
-<!-- ----------------------------------------------------------------------------------------------------- -->
-
-				<!-- <div class="row">
-					<div class="col-md-6 mb-3 form-group" id="div_id_first_name">
-						<label for="id_first_name" class="control-label required-field">First name</label>
-						<input type="text" name="first_name" class="form-control" id="id_first_name" placeholder="" required autofocus>
-						<div class="invalid-feedback">
-							This field is required, please enter a valid first name.
-						</div>
-					</div>
-					<div class="col-md-6 mb-3 form-group" id="div_id_surname">
-						<label for="id_surname" class="control-label required-field">Surname</label>
-						<input type="text" name="surname" class="form-control" id="id_surname" placeholder="" required>
-						<div class="invalid-feedback">
-							This field is required, please enter a valid surname.
-						</div>
-					</div>
-				</div>
-				<div class="mb-3 form-group" id="div_id_email_address">
-					<label for="id_email_address" class="control-label required-field">Email address</label>
-					<input type="email" name="email_address" class="form-control" id="id_email_address" placeholder="you@example.com" required>
-					<div class="invalid-feedback">
-						This field is required, please enter a valid email address.
-					</div>
-				</div>
-				<div class="mb-3 form-group" id="div_id_address1">
-					<label for="id_address1" class="control-label required-field">Home address</label>
-					<input type="text" name="adress1" class="form-control" id="id_address1" placeholder="1234 Main St" required>
-					<div class="invalid-feedback">
-						This field is required, please enter a valid home address.
-					</div>
-				</div>
-
-				<div class="mb-3 form-group" id="div_id_address2">
-					<label for="id_address2" class="control-label">Home address
-                        <span class="text-muted">(Continuation) (Optional)</span>
-                    </label>
-					<input type="text" name="address2" class="form-control" id="id_address2" placeholder="Apartment or suite">
-                </div>
-                
-				<div class="row">
-                <div class="col-md-3 mb-3 form-group" id="div_id_postcode">
-						<label for="id_postcode" class="control-label required-field">Postcode</label>
-						<input type="text" name="postcode" class="form-control" id="id_postcode" placeholder="" required>
-						<div class="invalid-feedback">
-							This field is required, please enter a valid town.
-						</div>
-					</div>
-					<div class="col-md-9 mb-3 form-group" id="div_id_town">
-				    	<label for="id_town" class="control-label required-field">Town</label>
-						<input type="text" name="town" class="form-control" id="id_town" placeholder="Edinburgh" required>
-						<div class="invalid-feedback">
-							This field is required, please enter a valid town.
-						</div>
-					</div>				
-				</div>
-
-                <div class="row">
-                <div class="col-md-6 mb-3 form-group" id="div_id_landline">
-						<label for="id_landline" class="control-label">Home phone number
-                            <span class="text-muted"> (Optional)</span>
-                        </label>
-						<input type="number" name="landline" class="form-control" id="id_landline" placeholder="">
-						<div class="invalid-feedback">
-							This field is required, please enter a valid home phone number.
-						</div>
-					</div>
-					<div class="col-md-6 mb-3 form-group" id="div_id_mobile">
-				    	<label for="id_mobile" class="control-label required-field">Mobile number</label>
-						<input type="number" name="mobile" class="form-control" id="id_mobile" placeholder="" required>
-						<div class="invalid-feedback">
-							This field is required, please enter a mobile number.
-						</div>
-					</div>				
-				</div> -->
 
                 <hr class="mb-4">
 				<!-- Payment information -->
