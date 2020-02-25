@@ -11,8 +11,8 @@ def view_cart(request):
 def add_to_cart(request, id):
     # Adds quantity of specified item to cart
     quantity = int(request.POST.get('quantity'))
-
     cart = request.session.get('cart', {})
+
     if id in cart:
         cart[id] = 1
         # cart[id] = int(cart[id]) + quantity
@@ -25,21 +25,6 @@ def add_to_cart(request, id):
 
 # --------------------------------------------------------- Remove from Cart
 def remove_from_cart(request, id):
-    # Adjusts quantity of specified item to specified amount
-    # quantity = int(request.POST.get('quantity'))
-    # cart = request.session.get('cart', {})
-
-    # if quantity > 0:
-    #     cart[id] = quantity
-    # else:
-    #     cart.pop(id)
-
-    # request.session['cart'] = cart
-    # return redirect(reverse('view_cart'))
-    ########################################################################
-    # Removes quantity of specified item to cart
-    # quantity = int(request.POST.get('quantity'))
-
     cart = request.session.get('cart', {})
     if id in cart:
         cart[id] -= 1
