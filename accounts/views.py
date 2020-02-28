@@ -45,14 +45,14 @@ def member_join(request):
 def login_member(request):
     # Once user is logged in, redirect to Home Page ('index')
     if request.user.is_authenticated:
-        return redirect(reverse('index'))
+        return redirect(reverse('profile'))
 
     if request.method == "POST":
         login_form = LoginForm(request.POST)
 
         # Validate username and password
         if login_form.is_valid():
-            user = auth.authenticate(username=request.POST['username'],
+            user = auth.authenticate(request.POST['username_or_email'],
                                      password=request.POST['password'])
 
             """
@@ -60,7 +60,7 @@ def login_member(request):
             and redirect to Home Page
             """
             if user:
-                auth.login(user=user, request=request)
+                auth.login(request, user)
                 messages.success(request, "Welcome back!")
                 return redirect(reverse('profile'))
             # If login is incorrect, display error message
@@ -85,7 +85,7 @@ def logout_member(request):
 
 # --------------------------------------------------------- Member Profile View
 
-
+@login_required
 def member_profile(request):
     user = User.objects.get(email=request.user.email)
     return render(request, 'profile.html', {"profile": user})
