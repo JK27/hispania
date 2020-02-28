@@ -6,16 +6,18 @@ class EmailAuth:
     # Authenticate user by email and password
 
     def authenticate(self, username_or_email=None, password=None):
-        # Get insatance of User based on email and verify password
+        # Get insatance of User based on email and verify the password
 
+        # Filter all users by searching for a match of username or email
         users = User.objects.filter(Q(username__iexact=username_or_email) |
                                     Q(email__iexact=username_or_email))
 
         if not users:
             return None
 
+        # Get first result of query, which is the user
         user = users[0]
-
+        # If password is correct, return user object
         if user.check_password(password):
             return user
 

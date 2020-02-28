@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from accounts.forms import LoginForm, JoinForm
 
 # --------------------------------------------------------- Index view
+""" Displays home page (index.html) """
 
 
 def index(request):
@@ -12,6 +13,7 @@ def index(request):
 
 
 # --------------------------------------------------------- Join in View
+""" Manages the Join in form (registration proccess) """
 
 
 def member_join(request):
@@ -24,13 +26,14 @@ def member_join(request):
 
         if join_form.is_valid():
             join_form.save()
-
-            user = auth.authenticate(username=request.POST['username'],
+            # Fields used for user authentication
+            user = auth.authenticate(username=request.POST['email'],
                                      password=request.POST['password1'])
 
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You have successfully joined in.")
+                return redirect(reverse('profile'))
             else:
                 messages.error(
                     request,
@@ -39,11 +42,13 @@ def member_join(request):
         join_form = JoinForm()
     return render(request, 'join.html', {"join_form": join_form})
 
+
 # --------------------------------------------------------- Login view
+""" Manages the Log in form """
 
 
 def login_member(request):
-    # Once user is logged in, redirect to Home Page ('index')
+    # Once user is logged in, redirect to Member's Profile ('profile.html')
     if request.user.is_authenticated:
         return redirect(reverse('profile'))
 
@@ -57,20 +62,36 @@ def login_member(request):
 
             """
             If login details are correct, display success message
-            and redirect to Home Page
+            and redirect to Profile Page
             """
             if user:
                 auth.login(request, user)
                 messages.success(request, "Welcome back!")
-                return redirect(reverse('profile'))
+
+                if request.GET and request.GET['next'] != '':
+                    next = request.GET['next']
+                    return redirect(next)
+
+                else:
+                    return redirect(reverse('profile'))
+
             # If login is incorrect, display error message
             else:
                 login_form.add_error(
                     None, "Your username of password is incorrect.")
+
     else:
         login_form = LoginForm()
 
     return render(request, 'login.html', {"login_form": login_form})
+
+# --------------------------------------------------------- Member Profile View
+
+
+@login_required    # User must be logged in before being able to see Profile
+def member_profile(request):
+    user = User.objects.get(email=request.user.email)
+    return render(request, 'profile.html', {"profile": user})
 
 # --------------------------------------------------------- Logout view
 
@@ -81,11 +102,3 @@ def logout_member(request):
     auth.logout(request)
     messages.success(request, "You have succesfully been logged out.")
     return redirect(reverse('index'))
-
-
-# --------------------------------------------------------- Member Profile View
-
-@login_required
-def member_profile(request):
-    user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"profile": user})
