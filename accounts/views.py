@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from accounts.forms import LoginForm, JoinForm
@@ -19,7 +20,7 @@ def index(request):
 def member_join(request):
     # If user is already logged in, redirect to Home Page
     if request.user.is_authenticated:
-        return redirect(reverse('index'))
+        return redirect(reverse('checkout'))
 
     if request.method == "POST":
         join_form = JoinForm(request.POST)
@@ -27,19 +28,21 @@ def member_join(request):
         if join_form.is_valid():
             join_form.save()
             # Fields used for user authentication
-            user = auth.authenticate(username=request.POST['email'],
-                                     password=request.POST['password1'])
-
-            if user:
-                auth.login(user=user, request=request)
-                messages.success(request, "You have successfully joined in.")
-                return redirect(reverse('profile'))
-            else:
-                messages.error(
-                    request,
-                    "We are unable to register your account at this time.")
+            username = join_form.cleaned_data['username']
+            email = join_form.cleaned_data['email']
+            password = join_form.cleaned_data['password1']
+            user = authenticate(username=username,
+                                email=email,
+                                password=password)
+            login(request=request, user=user)
+            messages.info(request, "You have successfully joined in.")
+            return redirect(reverse('checkout'))
+        else:
+            messages.error(request,
+                           "We are unable to register your account at this time.")
     else:
         join_form = JoinForm()
+
     return render(request, 'join.html', {"join_form": join_form})
 
 
@@ -48,49 +51,38 @@ def member_join(request):
 
 
 def login_member(request):
-    # Once user is logged in, redirect to Member's Profile ('profile.html')
     if request.user.is_authenticated:
         return redirect(reverse('profile'))
 
     if request.method == "POST":
-        login_form = LoginForm(request.POST)
+        join_form = JoinForm(request.POST)
 
-        # Validate username and password
-        if login_form.is_valid():
-            user = auth.authenticate(request.POST['username_or_email'],
-                                     password=request.POST['password'])
+        if join_form.is_valid():
+            join_form.save()
 
-            """
-            If login details are correct, display success message
-            and redirect to Profile Page
-            """
+            user = auth.authenticate(username=request.POST['username'],
+                                     password=request.POST['password1'])
+
             if user:
-                auth.login(request, user)
-                messages.success(request, "Welcome back!")
-
-                if request.GET and request.GET['next'] != '':
-                    next = request.GET['next']
-                    return redirect(next)
-
-                else:
-                    return redirect(reverse('profile'))
-
-            # If login is incorrect, display error message
+                auth.login(user=user, request=request)
+                messages.success(request, "You have succesfully registered.")
+                return redirect(reverse('profile'))
             else:
-                login_form.add_error(
-                    None, "Your username of password is incorrect.")
+                messages.error(
+                    request, "Unable to register your account at this time.")
 
     else:
-        login_form = LoginForm()
+        join_form = JoinForm()
 
-    return render(request, 'login.html', {"login_form": login_form})
+    return render(request, 'join.html',
+                  {"join_form": join_form})
 
 # --------------------------------------------------------- Member Profile View
 
 
 @login_required    # User must be logged in before being able to see Profile
 def member_profile(request):
-    user = User.objects.get(email=request.user.email)
+    user = User.objects.get(username=request.user.username)
     return render(request, 'profile.html', {"profile": user})
 
 # --------------------------------------------------------- Logout view

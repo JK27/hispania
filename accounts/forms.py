@@ -16,6 +16,7 @@ class JoinForm(UserCreationForm):
                                                      'showTodayButton': False,
                                                      'showClear': False,
                                                  }))
+    # email = forms.EmailField(max_length=100)
     password1 = forms.PasswordInput()
     password2 = forms.PasswordInput()
     address1 = forms.CharField(max_length=100, label='Home address')
@@ -23,7 +24,6 @@ class JoinForm(UserCreationForm):
                                required=False)
     postcode = forms.CharField(max_length=20)
     town = forms.CharField(max_length=50)
-    email_address = forms.EmailField(max_length=100)
     landline = forms.CharField(label='Home phone number (Optional)',
                                required=False)
     mobile = forms.CharField(label='Mobile number')
@@ -31,10 +31,10 @@ class JoinForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'surname', 'dob',
-                  'password1', 'password2',
+        fields = ['first_name', 'surname', 'dob', 'email',
+                  'username', 'password1', 'password2',
                   'address1', 'address2', 'postcode', 'town',
-                  'email_address', 'landline', 'mobile']
+                  'landline', 'mobile']
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
