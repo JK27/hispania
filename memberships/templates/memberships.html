@@ -2,9 +2,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="d-md-flex flex-md-equal justify-content-center w-100 my-md-3 pl-md-3">
+<div class="d-md-flex flex-md-equal flex-wrap justify-content-center w-100 my-md-3 pl-md-3">
 	{% for membership in memberships %}
-	<div class="border rounded-lg shadow mr-md-3 py-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+	<div class="membership-card col-5 border rounded-lg shadow mr-md-3 py-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 		<div class="membership"></div>
 		<h3>{{ membership.membership_type }}</h3>
 		<p class="membership-description">{{ membership.description }}</p>

@@ -12,7 +12,7 @@ class Order(models.Model):
                                 verbose_name='Home address (Optional)')
     postcode = models.CharField(max_length=20, blank=True, default='')
     town = models.CharField(max_length=50, blank=False, default='')
-    landline = models.IntegerField(blank=True, default='',
+    landline = models.IntegerField(blank=True, null=True, default='',
                                    verbose_name='Home phone number (Optional)')
     mobile = models.IntegerField(blank=False, default='',
                                  verbose_name='Mobile number', )

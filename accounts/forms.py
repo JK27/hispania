@@ -10,13 +10,12 @@ from bootstrap_datepicker_plus import DatePickerInput
 class JoinForm(UserCreationForm):
 
     first_name = forms.CharField(max_length=100)
-    surname = forms.CharField(max_length=100)
+    last_name = forms.CharField(max_length=100)
     dob = forms.DateField(widget=DatePickerInput(format='%d/%m/%Y',
                                                  options={
                                                      'showTodayButton': False,
                                                      'showClear': False,
-                                                 }))
-    # email = forms.EmailField(max_length=100)
+                                                 }), label='Date of birth')
     password1 = forms.PasswordInput()
     password2 = forms.PasswordInput()
     address1 = forms.CharField(max_length=100, label='Home address')
@@ -31,7 +30,7 @@ class JoinForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'surname', 'dob', 'email',
+        fields = ['first_name', 'last_name', 'dob', 'email',
                   'username', 'password1', 'password2',
                   'address1', 'address2', 'postcode', 'town',
                   'landline', 'mobile']
@@ -61,5 +60,5 @@ class JoinForm(UserCreationForm):
 
 class LoginForm(forms.Form):
 
-    username_or_email = forms.CharField(max_length=50, label="Email address")
+    username_or_email = forms.CharField(max_length=50, label="Username")
     password1 = forms.CharField(widget=forms.PasswordInput, label="Password")

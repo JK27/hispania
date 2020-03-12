@@ -6,5 +6,16 @@
 {% block page_heading %}{{ user }}'s Profile{% endblock %}
 
 {% block content %}
+<p>{{ profile.first_name }}</p>
+<p>{{ profile.last_name }}</p>
 <p>{{ profile.email }}</p>
+<p>{{ profile.membership_type }}</p>
+<p>{{ profile.dob }}</p>
+<p>{{ profile.addres1 }}</p>
+<p>{{ profile.address2 }}</p>
+<p>{{ profile.postcode }}</p>
+<p>{{ profile.town }}</p>
+<p>{{ profile.landline }}</p>
+<p>{{ profile.mobile }}</p>
+
 {% endblock %}

@@ -28,15 +28,16 @@
 </head>
 
 <body>
+	<!--------------------------------------------------------------- COLLAPSABLE HEADER -->
 	<header>
-		<!-- Collapsable header -->
 		<div class="bg-dark collapse" id="navbarHeader">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8 col-md-7 py-4">
 						<h4 class="header-text">About</h4>
 						<p class="text-muted">
-							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas eligendi cupiditate sint
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas eligendi cupiditate
+							sint
 							ipsum officiis? Nemo ratione quas eum explicabo voluptatem blanditiis quo temporibus
 							eligendi minima fugit quibusdam totam, dolores inventore?
 						</p>
@@ -59,7 +60,7 @@
 			</div>
 		</div>
 
-		<!-- Navigation menu -->
+		<!----------------------------------------------------------- NAVIGATION MENU -->
 		<nav class="navbar navbar-dark bg-dark shadow-sm sticky-top py-1">
 			<div class="container d-flex flex-column flex-md-row justify-content-between">
 				<a class="navbar-brand" href="{% url 'index' %}">Hispania</a>
@@ -68,12 +69,6 @@
 				{% if user.is_authenticated %}
 				<a class="navbar-link py-2 d-none d-md-inline-block" href="{% url 'profile' %}">Profile</a>
 				<a class="navbar-link py-2 d-none d-md-inline-block" href="{% url 'logout' %}">Logout</a>
-				<!-- <a class="navbar-link py-2 d-none d-md-inline-block" href="{% url 'view_cart' %}">
-					<i class="fas fa-shopping-cart"></i> Cart
-					{% if membership_count > 0 %}
-					<span class="badge badge-secondary badge-pill">{{ membership_count }}</span>
-					{% endif %}
-				</a> -->
 
 				<!-- If user is NOT authenticated, then display Login and Register options -->
 				{% else %}
@@ -91,12 +86,10 @@
 		</nav>
 	</header>
 
-	<hr>
+	<!--------------------------------------------------------------- PAGE HEADING -->
+	<h1 class="page-heading text-center">{% block page_heading %}{% endblock %}</h1>
 
-	<!--------------------------------------------------------- Page heading -->
-	<h1 class="text-center">{% block page_heading %}{% endblock %}</h1>
-
-	<!--------------------------------------------------------- Messages -->
+	<!--------------------------------------------------------------- MESSAGES -->
 	{% if messages %}
 	<div class="alert alert-success">
 		<div class="messages">
@@ -106,17 +99,17 @@
 		</div>
 	</div>
 	{% endif %}
-	<!--------------------------------------------------------- Block content -->
+
+	<!--------------------------------------------------------------- BLOCK CONTENT -->
 	{% block content %}
 	{% endblock %}
 
-	<!--------------------------------------------------------- Footer -->
-	<footer class="bottom text-muted text-center bg-dark text-white">
-		<div class="container">
-			<p>Hispania</p>
+	<!--------------------------------------------------------------- FOOTER -->
+	<footer class="text-muted text-center bg-dark text-white">
+		<div>
+			<p class="footer-text">Hispania</p>
 		</div>
 	</footer>
-
 </body>
 
 </html>
