@@ -28,18 +28,20 @@ def member_join(request):
         if join_form.is_valid():
             join_form.save()
             # Fields used for user authentication
-            username = join_form.cleaned_data['username']
-            email = join_form.cleaned_data['email']
-            password = join_form.cleaned_data['password1']
+            username = request.POST['username']
+            email = request.POST['email']
+            password = request.POST['password1']
             user = authenticate(username=username,
                                 email=email,
                                 password=password)
-            login(request=request, user=user)
-            messages.info(request, "You have successfully joined in.")
-            return redirect(reverse('checkout'))
-        else:
-            messages.error(request,
-                           "We are unable to register your account at this time.")
+
+            if user:
+                auth.login(user=user, request=request)
+                messages.info(request, "You have successfully joined in.")
+                return redirect(reverse('checkout'))
+            else:
+                messages.error(request,
+                               "We are unable to register your account at this time.")
     else:
         join_form = JoinForm()
 
@@ -55,12 +57,10 @@ def login_member(request):
         return redirect(reverse('profile'))
 
     if request.method == "POST":
-        join_form = JoinForm(request.POST)
+        login_form = LoginForm(request.POST)
 
-        if join_form.is_valid():
-            join_form.save()
-
-            user = auth.authenticate(username=request.POST['username'],
+        if login_form.is_valid():
+            user = auth.authenticate(username=request.POST['username_or_email'],
                                      password=request.POST['password1'])
 
             if user:
@@ -68,14 +68,12 @@ def login_member(request):
                 messages.success(request, "You have succesfully registered.")
                 return redirect(reverse('profile'))
             else:
-                messages.error(
-                    request, "Unable to register your account at this time.")
+                login_form.add_error(
+                    None, "Your username or password is incorrect.")
 
     else:
-        join_form = JoinForm()
-
-    return render(request, 'join.html',
-                  {"join_form": join_form})
+        login_form = LoginForm()
+    return render(request, 'login.html', {"login_form": login_form})
 
 # --------------------------------------------------------- Member Profile View
 

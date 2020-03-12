@@ -62,4 +62,4 @@ class JoinForm(UserCreationForm):
 class LoginForm(forms.Form):
 
     username_or_email = forms.CharField(max_length=50, label="Email address")
-    password = forms.CharField(widget=forms.PasswordInput, label="Password")
+    password1 = forms.CharField(widget=forms.PasswordInput, label="Password")
