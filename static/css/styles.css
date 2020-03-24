@@ -28,17 +28,6 @@ a.bg-dark:hover {
     margin-bottom: 0;
 }
 
-/* ------------------------------------ FOOTER */
-
-footer {
-    bottom: 0;
-    position: inherit;
-    width: 100%;
-}
-
-.footer-text {
-    margin-bottom: 0;
-}
 
 /* ------------------------------------ BUTTONS */
 .btn-success {
@@ -104,6 +93,12 @@ footer {
     color: #660066;
 }
 
+/* ------------------------------------ RESET PASSWORD FORM */
+
+#id_email {
+    width: -webkit-fill-available;
+}
+
 /* ------------------------------------ MEMBERSHIP CARD */
 
 .membership-card {
@@ -115,14 +110,20 @@ footer {
 }
 
 
-/* ------------------------------------ CHECKOUT FORM */
+/* ------------------------------------ JOIN IN FORM */
 
-#div_id_landline {
-    width: 50%
+#div_id_username .help-block {
+    display: none;
 }
 
-#div_id_mobile {
-    width: 50%
+#id_dob_month, #id_dob_day, #id_dob_year {
+    width: 30%;
+    display: inline;
+}
+
+#id_dob_day {
+    margin-left: 1.4rem;
+    margin-right: 1.4rem;
 }
 
 /* ------------------------------------ PAYMENT FORM */
@@ -138,4 +139,5 @@ footer {
 #id_expiry_year {
     width: 30%;
 }
+
 

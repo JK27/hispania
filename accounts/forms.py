@@ -2,24 +2,23 @@ from django import forms
 from django.contrib.auth.forms import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
-from bootstrap_datepicker_plus import DatePickerInput
+from django.forms.widgets import SelectDateWidget
+import datetime
 
 # --------------------------------------------------------- Member Join in Form
 
 
 class JoinForm(UserCreationForm):
+    YEAR_CHOICES = [(i) for i in range(datetime.date.today().year-100,
+                                       datetime.date.today().year-16)]
 
     first_name = forms.CharField(max_length=100)
     last_name = forms.CharField(max_length=100)
-    dob = forms.DateField(widget=DatePickerInput(format='%d/%m/%Y',
-                                                 options={
-                                                     'showTodayButton': False,
-                                                     'showClear': False,
-                                                 }), label='Date of birth')
+    dob = forms.DateField(widget=SelectDateWidget(years=YEAR_CHOICES))
     password1 = forms.PasswordInput()
     password2 = forms.PasswordInput()
     address1 = forms.CharField(max_length=100, label='Home address')
-    address2 = forms.CharField(max_length=100, label='Home address (Optional)',
+    address2 = forms.CharField(max_length=100, label='Home address continuation (Optional)',
                                required=False)
     postcode = forms.CharField(max_length=20)
     town = forms.CharField(max_length=50)

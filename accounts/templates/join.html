@@ -47,8 +47,9 @@
 		<div class="col-md-8 order-md-1">
 			<form method="POST" role="form" id="join-form" class="needs-validation" novalidate="">
 				{% csrf_token %}
-                {{ join_form.media }}
+				{{ join_form.media }}
 				{{ join_form | as_bootstrap }}
+
 				<div class="form-group">
 					<input type="submit" class="btn btn-success" id="join_in_btn" name="join_in" value="Join in">
 			    </div>
