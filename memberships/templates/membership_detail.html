@@ -3,7 +3,6 @@
 
 {% block content %}
 <div class="d-md-flex flex-md-equal flex-wrap justify-content-center w-100 my-md-3 pl-md-3">
-	{% for membership in all_memberships %}
 	<div
 		class="membership-card col-5 border rounded-lg shadow mr-md-3 py-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 		<div class="membership"></div>
@@ -18,13 +17,7 @@
 			<span class="input-group-btn">
                 <button class="btn btn-success" type="submit">Add to cart</button>
             </span>
-            <span class="input-group-btn">
-                <a href="{% url 'detail_membership' membership.slug %}" class="btn btn-success" type="submit" >View details</a>
-		    </span>
 		</form>
-
-
 	</div>
-	{% endfor %}
 </div>
 {% endblock %}

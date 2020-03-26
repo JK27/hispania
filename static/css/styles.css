@@ -104,11 +104,12 @@ a.bg-dark:hover {
 .membership-card {
     margin-bottom: 20px;
 }
+
 /* ------------------------------------ CART TEMPLATE */
+
 .cart-total {
     display: inline-flex;
 }
-
 
 /* ------------------------------------ JOIN IN FORM */
 

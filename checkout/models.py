@@ -20,7 +20,8 @@ class Order(models.Model):
 
     def __str__(self):
         return "{0}-{1}-{2}".format(self.id, self.date,
-                                    self.first_name, self.surname)
+                                    self.first_name, self.surname,
+                                    self.town)
 
 
 class OrderLineItem(models.Model):
