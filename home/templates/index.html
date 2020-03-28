@@ -13,36 +13,41 @@
 		<p class="lead font-weight-normal">And an even wittier subheading to boot. Jumpstart your marketing efforts with
 			this example based on Apple’s marketing pages.</p>
 	</div>
-	<a class="btn btn-outline-secondary bg-dark text-white " href="{% url 'memberships' %}">JOIN NOW</a>
+	{% if user.is_authenticated %}
     <a class="btn btn-outline-secondary bg-dark text-white " href="#">DAY PASS</a>
-    <a class="btn btn-outline-secondary bg-dark text-white " href="#">BOOK A TOUR</a>
+	<a class="btn btn-outline-secondary bg-dark text-white " href="#">BOOK A TOUR</a>
+    {% else %}
+	<a class="btn btn-outline-secondary bg-dark text-white " href="{% url 'memberships' %}">JOIN NOW</a>
+	<a class="btn btn-outline-secondary bg-dark text-white " href="#">DAY PASS</a>
+	<a class="btn btn-outline-secondary bg-dark text-white " href="#">BOOK A TOUR</a>
+    {% endif %}
 </div>
 
 <!------------------------------------------------------------------- GRID CELLS -->
 <div class="d-md-flex flex-md-equal w-100 my-md-3 pl-md-3">
-	<a
-		class="bg-dark mr-md-3 pt-3 px-3 px-md-5 text-center text-white overflow-hidden border rounded-lg shadow" href="#">
+	<a class="bg-dark mr-md-3 pt-3 px-3 px-md-5 text-center text-white overflow-hidden border rounded-lg shadow"
+		href="#">
 		<div class="my-3 py-3">
 			<h2 class="display-5">Gym facilities</h2>
 			<p class="lead">And an even wittier subheading.</p>
 		</div>
 	</a>
-	<a
-		class="bg-dark mr-md-3 pt-3 px-3 px-md-5 text-center text-white overflow-hidden border rounded-lg shadow" href="#">
+	<a class="bg-dark mr-md-3 pt-3 px-3 px-md-5 text-center text-white overflow-hidden border rounded-lg shadow"
+		href="#">
 		<div class="my-3 p-3">
 			<h2 class="display-5">Pool area</h2>
 			<p class="lead">And an even wittier subheading.</p>
 		</div>
 	</a>
-	<a
-		class="bg-dark mr-md-3 pt-3 px-3 px-md-5 text-center text-white overflow-hidden border rounded-lg shadow" href="#">
+	<a class="bg-dark mr-md-3 pt-3 px-3 px-md-5 text-center text-white overflow-hidden border rounded-lg shadow"
+		href="#">
 		<div class="my-3 py-3">
 			<h2 class="display-5">Spa</h2>
 			<p class="lead">And an even wittier subheading.</p>
 		</div>
 	</a>
-	<a
-		class="bg-dark mr-md-3 pt-3 px-3 px-md-5 text-center text-white overflow-hidden border rounded-lg shadow" href="#">
+	<a class="bg-dark mr-md-3 pt-3 px-3 px-md-5 text-center text-white overflow-hidden border rounded-lg shadow"
+		href="#">
 		<div class="my-3 py-3">
 			<h2 class="display-5">Classes</h2>
 			<p class="lead">And an even wittier subheading.</p>

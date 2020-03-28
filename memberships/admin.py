@@ -4,7 +4,8 @@ from .models import Membership
 
 # --------------------------------------------------------- Memberships Admin
 class MembershipAdmin(admin.ModelAdmin):
-    list_display = ('membership_type', 'description', 'price', 'id')
+    list_display = ('membership_type', 'category', 'description',
+                    'price', 'id')
 
 
 admin.site.register(Membership, MembershipAdmin)
