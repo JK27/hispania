@@ -15,7 +15,7 @@ class Order(models.Model):
     landline = models.IntegerField(blank=True, null=True, default='',
                                    verbose_name='Home phone number (Optional)')
     mobile = models.IntegerField(blank=False, default='',
-                                 verbose_name='Mobile number', )
+                                 verbose_name='Mobile number')
     date = models.DateField()
 
     def __str__(self):

@@ -31,6 +31,7 @@ def member_join(request):
             username = request.POST['username']
             email = request.POST['email']
             password = request.POST['password1']
+
             user = authenticate(username=username,
                                 email=email,
                                 password=password)

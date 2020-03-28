@@ -14,11 +14,13 @@ class JoinForm(UserCreationForm):
 
     first_name = forms.CharField(max_length=100)
     last_name = forms.CharField(max_length=100)
-    dob = forms.DateField(widget=SelectDateWidget(years=YEAR_CHOICES))
+    dob = forms.DateField(widget=SelectDateWidget(years=YEAR_CHOICES),
+                          label='Date of birth')
     password1 = forms.PasswordInput()
     password2 = forms.PasswordInput()
     address1 = forms.CharField(max_length=100, label='Home address')
-    address2 = forms.CharField(max_length=100, label='Home address continuation (Optional)',
+    address2 = forms.CharField(max_length=100,
+                               label='Home address continuation (Optional)',
                                required=False)
     postcode = forms.CharField(max_length=20)
     town = forms.CharField(max_length=50)

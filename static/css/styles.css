@@ -113,6 +113,14 @@ a.bg-dark:hover {
 
 /* ------------------------------------ JOIN IN FORM */
 
+#div_id_password1 ul {
+    color: #6c757d!important;
+}
+
+.help-block {
+    color: #6c757d!important;
+}
+
 #div_id_username .help-block {
     display: none;
 }
