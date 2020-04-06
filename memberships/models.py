@@ -12,7 +12,7 @@ class Category(models.Model):
 
 
 class Membership(models.Model):
-    category = models.ManyToManyField(Category)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True)
     membership_type = models.CharField(max_length=50, default='')
     description = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)

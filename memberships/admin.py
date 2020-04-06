@@ -11,7 +11,7 @@ admin.site.register(Category, CategoryAdmin)
 
 # --------------------------------------------------------- Memberships Admin
 class MembershipAdmin(admin.ModelAdmin):
-    list_display = ('membership_type', 'description',
+    list_display = ('membership_type', 'category', 'description',
                     'price', 'id')
 
 
