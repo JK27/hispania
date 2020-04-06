@@ -1,10 +1,14 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Membership
+from .models import Membership, Category
 
 
-def list_memberships(request):
-    all_memberships = Membership.objects.all()
-    context = {"all_memberships": all_memberships}
+def list_memberships(request, category_slug=None):
+    categories = Category.objects.all()
+    memberships = Membership.objects.all()
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        memberships = memberships.filter(category=category)
+    context = {'categories': categories, "memberships": memberships}
     return render(request, "memberships.html", context)
 
 
