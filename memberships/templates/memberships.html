@@ -12,7 +12,7 @@
 		class="membership-card col-5 border rounded-lg shadow mr-md-3 py-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 		<div class="membership"></div>
 		<h3>{{ membership.membership_type }}</h3>
-		<p>{{ membership.category }}</p>
+		<a href="#">{{ membership.category }}</a>
 		<p class="membership-description">{{ membership.description|linebreaks }}</p>
 		<p><strong>£{{ membership.price }}</strong> per month</p>
 
@@ -24,7 +24,7 @@
                 <button class="btn btn-success" type="submit">Add to cart</button>
             </span>
 			<span class="input-group-btn">
-                <a href="{% url 'detail_membership' membership.slug %}" class="btn btn-success" type="submit" >View details</a>
+                <a href="{% url 'detail_membership' membership.slug %}" class="btn btn-detail" type="submit" >View details</a>
 		    </span>
 		</form>
 

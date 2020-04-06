@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static from static %}
+{% load bootstrap_tags %}
+
+{% block page_title %}Hispania - Membership Categories{% endblock %}
+
+{% block content %}
+<div class="d-md-flex flex-md-equal flex-wrap justify-content-center w-100 my-md-3 pl-md-3">
+	{% for category in categories %}
+	<div
+		class="membership-card col-5 border rounded-lg shadow mr-md-3 py-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
+		<div class="membership"></div>
+		<h3><a href="{% url 'list_memberships' category.slug %}">{{ category.name }} memberships</a></h3>
+	</div>
+    {% endfor %}
+</div>
+{% endblock %}

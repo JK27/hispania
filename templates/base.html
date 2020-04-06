@@ -42,7 +42,7 @@
 				<!-- If user is NOT authenticated, then display Login and Register options -->
 				{% else %}
 				<a class="navbar-link py-2 d-none d-md-inline-block" href="{% url 'login' %}">Member Portal</a>
-				<a class="navbar-link py-2 d-none d-md-inline-block" href="{% url 'memberships' %}">Join in</a>
+				<a class="navbar-link py-2 d-none d-md-inline-block" href="{% url 'list_memberships' %}">Join in</a>
 				{% endif %}
 
 				<button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#navbarHeader" aria-expanded="false" aria-controls="navbarHeader" aria-label="Toggle navigation">

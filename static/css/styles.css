@@ -65,6 +65,20 @@ a.bg-dark:hover {
     border-width : medium;
 }
 
+.btn-detail {
+    color: #ffffff;
+    background-color: #000033;
+    border-color: #000033;
+    border-width: medium;
+}
+
+.btn-detail:hover {
+    color: #ffffff;
+    background-color: #000066;
+    border-color: #000033;
+    border-width: medium;
+}
+
 /* ------------------------------------ HERO BANNER */
 
 #hero_banner {

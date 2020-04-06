@@ -11,7 +11,7 @@
 		class="membership-card col-5 border rounded-lg shadow mr-md-3 py-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 		<div class="membership"></div>
 		<h3>{{ membership.membership_type }}</h3>
-		<p class="membership-description">{{ membership.description }}</p>
+		<p class="membership-description">{{ membership.description|linebreaks }}</p>
 		<p><strong>£{{ membership.price }}</strong> per month</p>
 
 		<!-- Choose membership form -->
@@ -22,7 +22,7 @@
                 <button class="btn btn-success" type="submit">Add to cart</button>
             </span>
 			<span class="input-group-btn">
-	            <a class="btn btn-danger " href="{% url 'memberships' %}">Go back</a>
+	            <a class="btn btn-danger " href="{% url 'list_memberships' %}">Go back</a>
 		    </span>
 		</form>
 	</div>
