@@ -42,12 +42,15 @@ a.bg-dark:hover {
     border-width: medium;
 }
 
-.btn-outline-secondary {
+.btn-purple {
+    color: #ffffff;
+    background-color: #330033;
     border-color: #330033;
     border-width : medium;
 }
 
-.btn-outline-secondary:hover {
+.btn-purple:hover {
+    color: #ffffff;
     background-color: #660066! important;
     border-color: #330033;
     border-width : medium;
@@ -85,6 +88,11 @@ a.bg-dark:hover {
     position: relative;
     overflow: hidden;
 }
+
+/* ------------------------------------ MEMBERSHIP SELECTION */
+
+.collapse:not(.show) {
+    display: none!important;
 
 /* ------------------------------------ LOG IN FORM*/
 .form-login {

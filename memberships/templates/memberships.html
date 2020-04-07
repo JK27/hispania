@@ -7,12 +7,24 @@
 
 {% block content %}
 <div class="d-md-flex flex-md-equal flex-wrap justify-content-center w-100 my-md-3 pl-md-3">
-	{% for membership in memberships %}
+	{% for category in categories %}
 	<div
 		class="membership-card col-5 border rounded-lg shadow mr-md-3 py-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden">
 		<div class="membership"></div>
+		<h3>{{ category.name }} memberships</h3>
+		<button class="navbar-toggler collapsed btn-purple" type="submit" data-toggle="collapse" data-target="#membership_selection" aria-controls="membership_selection" aria-expanded="false" aria-label="Toggle membership selection">Select</button>
+	</div>
+	{% endfor %}
+</div>
+
+<!-- --------------------------------------------------------------------------------------- -->
+<div class="collapse d-md-flex flex-md-equal flex-wrap justify-content-center w-100 my-md-3 pl-md-3" id="membership_selection">
+	{% for membership in memberships %}
+	<div
+		class="membership-card col-5 border rounded-lg shadow mr-md-3 py-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden" id="membership_card">
+		<div class="membership"></div>
 		<h3>{{ membership.membership_type }}</h3>
-		<a href="#">{{ membership.category }}</a>
+		<h5>{{ membership.category }}</h5>
 		<p class="membership-description">{{ membership.description|linebreaks }}</p>
 		<p><strong>£{{ membership.price }}</strong> per month</p>
 
